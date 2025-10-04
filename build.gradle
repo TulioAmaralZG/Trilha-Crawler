@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'application'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+application {
+    mainClass = 'Main'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.13'
+    implementation 'org.codehaus.groovy:groovy-json:3.0.13'
+    implementation 'org.jsoup:jsoup:1.16.1'
+    implementation 'com.opencsv:opencsv:5.7.1'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
